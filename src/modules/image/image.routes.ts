@@ -15,8 +15,6 @@ router.post(
     console.log('ROUTE HIT');
     next();
   },
-  // authMiddleware,
-  // allowRoles(['ADMIN', 'AUTHOR']),
   uploadImage
 );
 
