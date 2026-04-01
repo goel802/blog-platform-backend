@@ -9,7 +9,11 @@ import imageRoutes    from './modules/image/image.routes';
 const app = express();
 const PORT = process.env.PORT ?? 3000;
 
-app.use(cors({ origin: process.env.FRONTEND_URL ??  'https://marign-blog-gxriebai2-ashus-projects-dc9e76e4.vercel.app/', credentials: true }));
+// app.use(cors({ origin: process.env.FRONTEND_URL ??  'https://marign-blog-gxriebai2-ashus-projects-dc9e76e4.vercel.app/', credentials: true }));
+app.use(cors({
+  origin: [process.env.FRONTEND_URL || "http://localhost:5173"],
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use((req, _res, next) => { console.log(`${new Date().toISOString()} ${req.method} ${req.url}`); next(); });
